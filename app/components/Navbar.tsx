@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX, FiPhone, FiMail } from 'react-icons/fi'
 
@@ -56,23 +57,18 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-40 md:h-56 lg:h-64">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-gold-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">D</span>
-              </div>
-              <div className="hidden sm:block">
-                <h1 className={`font-luxury text-xl font-bold ${
-                  scrolled ? 'text-gray-800' : 'text-white'
-                }`}>
-                  Dream Travel
-                </h1>
-                <p className={`text-xs ${
-                  scrolled ? 'text-gray-600' : 'text-gray-200'
-                }`}>
-                  Agency
-                </p>
+            <Link href="/" className="flex items-center">
+              <div className="relative">
+                <Image
+                  src="/header-logo.png"
+                  alt="Dream Travel Agency Logo"
+                  width={240}
+                  height={240}
+                  className="object-contain w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 hover:scale-105 transition-transform duration-300"
+                  priority
+                />
               </div>
             </Link>
 
@@ -100,11 +96,11 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`md:hidden p-2 rounded-md ${
+              className={`md:hidden p-3 rounded-md ${
                 scrolled ? 'text-gray-700' : 'text-white'
               }`}
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
             </button>
           </div>
         </div>
