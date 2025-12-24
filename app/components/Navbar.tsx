@@ -57,16 +57,16 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-40 md:h-56 lg:h-64">
+          <div className="flex justify-between items-center h-28 md:h-32">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div className="relative">
                 <Image
                   src="/header-logo.png"
                   alt="Dream Travel Agency Logo"
-                  width={240}
-                  height={240}
-                  className="object-contain w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 hover:scale-105 transition-transform duration-300"
+                  width={400}
+                  height={400}
+                  className="object-contain w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 hover:scale-105 transition-transform duration-300"
                   priority
                 />
               </div>

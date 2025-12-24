@@ -40,8 +40,8 @@ const Footer = () => {
                 <Image
                   src="/header-logo.png"
                   alt="Dream Travel Agency Logo"
-                  width={140}
-                  height={140}
+                  width={200}
+                  height={200}
                   className="object-contain hover:scale-110 transition-transform duration-300"
                 />
               </div>
