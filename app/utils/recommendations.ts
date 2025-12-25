@@ -60,7 +60,7 @@ const samplePackages: Package[] = [
     category: 'wedding',
     price: 150000,
     duration: '7 Days 6 Nights',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     description: 'Royal wedding experience in majestic palaces',
     budget: 'premium',
     tags: ['wedding', 'royal', 'heritage', 'luxury']

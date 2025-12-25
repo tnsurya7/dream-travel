@@ -332,24 +332,22 @@ const PackageDetailsPage = () => {
                 >
                   Book Now / Enquire
                 </button>
-                
-                <div className="flex space-x-2">
-                  <button className="flex-1 border-2 border-gray-300 text-gray-700 py-2 px-4 rounded-xl hover:border-primary-500 hover:text-primary-600 transition-colors flex items-center justify-center space-x-2">
-                    <FiHeart className="w-4 h-4" />
-                    <span>Save</span>
-                  </button>
-                  <button className="flex-1 border-2 border-gray-300 text-gray-700 py-2 px-4 rounded-xl hover:border-primary-500 hover:text-primary-600 transition-colors flex items-center justify-center space-x-2">
-                    <FiShare2 className="w-4 h-4" />
-                    <span>Share</span>
-                  </button>
-                </div>
               </div>
 
               <div className="mt-6 pt-6 border-t border-gray-200">
-                <div className="text-center text-sm text-gray-600">
-                  <p>✅ Free cancellation up to 24 hours</p>
-                  <p>✅ Best price guarantee</p>
-                  <p>✅ 24/7 customer support</p>
+                <div className="space-y-3 text-sm text-gray-600">
+                  <div className="flex items-center space-x-3">
+                    <span className="text-green-500 text-base">✅</span>
+                    <span className="font-medium">Free cancellation up to 24 hours</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-green-500 text-base">✅</span>
+                    <span className="font-medium">Best price guarantee</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <span className="text-green-500 text-base">✅</span>
+                    <span className="font-medium">24/7 customer support</span>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -97,9 +97,9 @@ const ContactPage = () => {
   ]
 
   const businessHours = [
-    { day: 'Monday - Friday', hours: '9:00 AM - 7:00 PM' },
-    { day: 'Saturday', hours: '9:00 AM - 5:00 PM' },
-    { day: 'Sunday', hours: '10:00 AM - 4:00 PM' }
+    { day: 'Customer Support', hours: '24/7 Available' },
+    { day: 'Emergency Assistance', hours: 'Round the Clock' },
+    { day: 'Online Booking', hours: 'Always Open' }
   ]
 
   return (
@@ -190,7 +190,7 @@ const ContactPage = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mr-4">
                   <FiClock className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800">Business Hours</h3>
+                <h3 className="text-lg font-semibold text-gray-800">24/7 Service</h3>
               </div>
               <div className="space-y-2">
                 {businessHours.map((schedule, index) => (
@@ -338,17 +338,51 @@ const ContactPage = () => {
               Visit our office for personalized travel consultation
             </p>
           </div>
-          <div className="h-96 bg-gray-200 flex items-center justify-center">
-            {/* Replace this with actual Google Maps embed */}
-            <div className="text-center">
-              <FiMapPin className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600">
-                Pathriya Fatak, Mangaj Ward No. 6<br />
-                Madhya Pradesh, India
-              </p>
-              <p className="text-sm text-gray-500 mt-2">
-                Google Maps integration coming soon
-              </p>
+          <div className="relative h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29207.31542829707!2d77.4126!3d23.2599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh%2C%20India!5e0!3m2!1sen!2sus!4v1635784892345!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Dream Travel Agency Office Location - Madhya Pradesh, India"
+              className="rounded-b-2xl"
+            />
+            
+            {/* Office Info Overlay */}
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg max-w-xs">
+              <div className="flex items-start space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <FiMapPin className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-800 mb-1">Dream Travel Agency</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Pathriya Fatak, Mangaj Ward No. 6<br />
+                    Madhya Pradesh, India
+                  </p>
+                  <div className="mt-2 flex flex-col space-y-1 text-xs text-gray-500">
+                    <span>📞 +91 9109455317</span>
+                    <span>📞 +91 8103797070</span>
+                    <span>✉️ nikhiljatav5588@gmail.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Directions Button */}
+            <div className="absolute bottom-4 right-4">
+              <a
+                href="https://www.google.com/maps/search/Pathriya+Fatak+Mangaj+Ward+Madhya+Pradesh+India"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-300 flex items-center space-x-2 shadow-lg"
+              >
+                <FiMapPin className="w-4 h-4" />
+                <span>Get Directions</span>
+              </a>
             </div>
           </div>
         </motion.div>
