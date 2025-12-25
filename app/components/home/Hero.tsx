@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FiPlay, FiArrowRight } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useState } from 'react'
 
 const Hero = () => {
@@ -123,6 +124,16 @@ const Hero = () => {
                 <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               
+              <a
+                href="https://wa.me/919109455317?text=Hi!%20I'm%20interested%20in%20your%20travel%20packages.%20Can%20you%20help%20me%20plan%20my%20trip?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center space-x-2"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                <span>WhatsApp Us</span>
+              </a>
+              
               <Link
                 href="/contact"
                 className="group glass text-white border-2 border-white/30 hover:border-white/50 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
@@ -142,8 +153,8 @@ const Hero = () => {
               {[
                 { number: '500+', label: 'Happy Travelers' },
                 { number: '50+', label: 'Destinations' },
-                { number: '100+', label: 'Tour Packages' },
-                { number: '5★', label: 'Customer Rating' },
+                { number: '8+', label: 'Tour Packages' },
+                { number: '24/7', label: 'Customer Support' },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-2">

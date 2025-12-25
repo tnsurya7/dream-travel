@@ -46,8 +46,8 @@ const WhyChooseUs = () => {
   const stats = [
     { number: '500+', label: 'Happy Travelers', icon: '😊' },
     { number: '50+', label: 'Destinations', icon: '🌍' },
-    { number: '100+', label: 'Tour Packages', icon: '📦' },
-    { number: '5★', label: 'Average Rating', icon: '⭐' }
+    { number: '8+', label: 'Tour Packages', icon: '📦' },
+    { number: '24/7', label: 'Customer Support', icon: '🎧' }
   ]
 
   return (

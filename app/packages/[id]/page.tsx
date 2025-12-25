@@ -48,48 +48,296 @@ const PackageDetailsPage = () => {
   }
 
   const images = [
-    packageData.image,
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+    packageData.image, // This will now be the local image from public folder
+    // Additional images for gallery - mix of local and external for variety
+    packageData.id === '1' ? '/KASHMIR TOUR PACKAGE.png' :
+    packageData.id === '2' ? '/KERALA HOLIDAY PACKAGE.png' :
+    packageData.id === '3' ? '/ SIKKIM GROUP DEPARTURE.png' :
+    packageData.id === '4' ? '/GANGTOK & DARJEELING WINTER SPECIAL.png' :
+    '/MATHURA.png',
+    
+    // External images for gallery variety
+    packageData.id === '1' ? 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    packageData.id === '2' ? 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    packageData.id === '3' ? 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    packageData.id === '4' ? 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    
+    // Additional gallery images
+    'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
   ]
 
-  const itinerary = [
-    {
-      day: 1,
-      title: 'Arrival & Check-in',
-      description: 'Arrive at destination, check into hotel, welcome dinner and briefing about the tour.',
-      activities: ['Airport pickup', 'Hotel check-in', 'Welcome dinner', 'Tour briefing']
-    },
-    {
-      day: 2,
-      title: 'City Exploration',
-      description: 'Full day city tour covering major attractions, local markets, and cultural sites.',
-      activities: ['Breakfast', 'City tour', 'Local market visit', 'Cultural show']
-    },
-    {
-      day: 3,
-      title: 'Adventure Activities',
-      description: 'Exciting adventure activities and outdoor experiences based on the destination.',
-      activities: ['Adventure sports', 'Nature walk', 'Photography session', 'Local cuisine']
-    },
-    {
-      day: 4,
-      title: 'Departure',
-      description: 'Check out from hotel, last-minute shopping, and departure to airport.',
-      activities: ['Check out', 'Shopping', 'Airport transfer', 'Departure']
+  const getPackageItinerary = (packageId: string) => {
+    switch (packageId) {
+      case '1': // Kashmir Tour Package
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Srinagar',
+            description: 'Arrive in Srinagar, check into deluxe houseboat on Dal Lake, evening Shikara ride.',
+            activities: ['Airport pickup', 'Houseboat check-in', 'Shikara ride', 'Welcome dinner']
+          },
+          {
+            day: 2,
+            title: 'Srinagar Sightseeing',
+            description: 'Visit Mughal Gardens, Shankaracharya Temple, and local markets.',
+            activities: ['Mughal Gardens', 'Shankaracharya Temple', 'Local markets', 'Dal Lake evening']
+          },
+          {
+            day: 3,
+            title: 'Gulmarg Excursion',
+            description: 'Day trip to Gulmarg, enjoy Gondola ride and snow activities.',
+            activities: ['Gulmarg visit', 'Gondola ride', 'Snow activities', 'Return to Srinagar']
+          },
+          {
+            day: 4,
+            title: 'Pahalgam Valley',
+            description: 'Visit Pahalgam, explore Betaab Valley and Aru Valley.',
+            activities: ['Pahalgam sightseeing', 'Betaab Valley', 'Aru Valley', 'River rafting']
+          },
+          {
+            day: 5,
+            title: 'Sonmarg/Doodhpathri',
+            description: 'Excursion to Sonmarg or Doodhpathri, enjoy meadows and glaciers.',
+            activities: ['Sonmarg visit', 'Thajiwas Glacier', 'Meadow walks', 'Photography']
+          },
+          {
+            day: 6,
+            title: 'Departure',
+            description: 'Check out from houseboat, last-minute shopping, departure from Srinagar.',
+            activities: ['Check out', 'Shopping', 'Airport transfer', 'Departure']
+          }
+        ]
+      case '2': // Kerala Holiday Package
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Kochi',
+            description: 'Arrive in Kochi, check into hotel, explore Fort Kochi and Chinese fishing nets.',
+            activities: ['Airport pickup', 'Hotel check-in', 'Fort Kochi', 'Chinese fishing nets']
+          },
+          {
+            day: 2,
+            title: 'Kochi to Munnar',
+            description: 'Drive to Munnar, check into hill station hotel, evening at leisure.',
+            activities: ['Drive to Munnar', 'Hotel check-in', 'Tea gardens', 'Evening leisure']
+          },
+          {
+            day: 3,
+            title: 'Munnar Sightseeing',
+            description: 'Visit tea plantations, Eravikulam National Park, and Mattupetty Dam.',
+            activities: ['Tea plantations', 'Eravikulam Park', 'Mattupetty Dam', 'Echo Point']
+          },
+          {
+            day: 4,
+            title: 'Munnar to Thekkady',
+            description: 'Drive to Thekkady, spice plantation visit, evening boat ride in Periyar.',
+            activities: ['Drive to Thekkady', 'Spice plantation', 'Periyar boat ride', 'Wildlife viewing']
+          },
+          {
+            day: 5,
+            title: 'Thekkady to Alleppey',
+            description: 'Drive to Alleppey, check into luxury houseboat, backwater cruise.',
+            activities: ['Drive to Alleppey', 'Houseboat check-in', 'Backwater cruise', 'Candlelight dinner']
+          },
+          {
+            day: 6,
+            title: 'Alleppey to Kovalam',
+            description: 'Drive to Kovalam, check into beach resort, relax at the beach.',
+            activities: ['Drive to Kovalam', 'Beach resort', 'Beach activities', 'Sunset viewing']
+          },
+          {
+            day: 7,
+            title: 'Departure from Trivandrum',
+            description: 'Check out, visit Trivandrum city, departure from Trivandrum airport.',
+            activities: ['Check out', 'Trivandrum sightseeing', 'Airport transfer', 'Departure']
+          }
+        ]
+      case '3': // Sikkim Group Departure
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Gangtok',
+            description: 'Arrive in Gangtok, check into premium hotel, evening at leisure to acclimatize.',
+            activities: ['Airport pickup', 'Hotel check-in', 'City orientation', 'Welcome dinner']
+          },
+          {
+            day: 2,
+            title: 'Gangtok Sightseeing',
+            description: 'Full day Gangtok local sightseeing covering major attractions.',
+            activities: ['Rumtek Monastery', 'Enchey Monastery', 'Tashi View Point', 'Ganesh Tok']
+          },
+          {
+            day: 3,
+            title: 'Tsomgo Lake & Baba Mandir',
+            description: 'Excursion to Tsomgo Lake and Baba Harbhajan Singh Mandir.',
+            activities: ['Tsomgo Lake', 'Baba Mandir', 'Yak ride', 'Snow activities']
+          },
+          {
+            day: 4,
+            title: 'Gangtok to Pelling',
+            description: 'Drive to Pelling, check into hotel, visit Pemayangtse Monastery.',
+            activities: ['Drive to Pelling', 'Hotel check-in', 'Pemayangtse Monastery', 'Sunset views']
+          },
+          {
+            day: 5,
+            title: 'Pelling to Darjeeling',
+            description: 'Drive to Darjeeling, check into hotel, evening Mall Road exploration.',
+            activities: ['Drive to Darjeeling', 'Hotel check-in', 'Mall Road', 'Local markets']
+          },
+          {
+            day: 6,
+            title: 'Darjeeling Sightseeing',
+            description: 'Early morning Tiger Hill sunrise, then full day Darjeeling sightseeing.',
+            activities: ['Tiger Hill sunrise', 'Batasia Loop', 'Ghoom Monastery', 'Tea gardens']
+          },
+          {
+            day: 7,
+            title: 'Departure',
+            description: 'Check out from hotel, last-minute shopping, departure from Bagdogra.',
+            activities: ['Check out', 'Shopping', 'Airport transfer', 'Departure']
+          }
+        ]
+      case '4': // Winter Special Gangtok & Darjeeling
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Gangtok',
+            description: 'Arrive in Gangtok, check into hotel, evening winter snow experience.',
+            activities: ['Airport pickup', 'Hotel check-in', 'Winter acclimatization', 'Snow viewing']
+          },
+          {
+            day: 2,
+            title: 'Tsomgo Lake Winter Special',
+            description: 'Visit frozen Tsomgo Lake and Baba Mandir, enjoy winter snow activities.',
+            activities: ['Frozen Tsomgo Lake', 'Baba Mandir', 'Snow activities', 'Winter photography']
+          },
+          {
+            day: 3,
+            title: 'Gangtok to Darjeeling',
+            description: 'Drive to Darjeeling through scenic winter landscapes, check into hotel.',
+            activities: ['Scenic winter drive', 'Hotel check-in', 'Mall Road evening', 'Winter shopping']
+          },
+          {
+            day: 4,
+            title: 'Darjeeling Winter Sightseeing',
+            description: 'Early morning Tiger Hill for winter sunrise, full day sightseeing.',
+            activities: ['Tiger Hill winter sunrise', 'Batasia Loop', 'Tea gardens', 'Toy train']
+          },
+          {
+            day: 5,
+            title: 'Departure',
+            description: 'Check out, last-minute shopping, departure from Bagdogra airport.',
+            activities: ['Check out', 'Shopping', 'Airport transfer', 'Departure']
+          }
+        ]
+      case '5': // Mathura Vrindavan Tour
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Mathura',
+            description: 'Arrive in Mathura, check into hotel, visit Krishna Janmabhoomi Temple.',
+            activities: ['Hotel check-in', 'Krishna Janmabhoomi', 'Dwarkadhish Temple', 'Evening aarti']
+          },
+          {
+            day: 2,
+            title: 'Vrindavan Darshan',
+            description: 'Full day Vrindavan sightseeing covering major temples and holy sites.',
+            activities: ['Banke Bihari Temple', 'ISKCON Temple', 'Prem Mandir', 'Radha Raman Temple']
+          },
+          {
+            day: 3,
+            title: 'Raman Reti & Nand Gaon',
+            description: 'Visit Raman Reti and Nand Gaon, explore Krishna\'s childhood places.',
+            activities: ['Raman Reti', 'Nand Gaon', 'Yashoda Maiya Temple', 'Local sightseeing']
+          },
+          {
+            day: 4,
+            title: 'Departure',
+            description: 'Morning temple visit, check out from hotel, departure.',
+            activities: ['Morning darshan', 'Check out', 'Shopping', 'Departure']
+          }
+        ]
+      default:
+        return [
+          {
+            day: 1,
+            title: 'Arrival & Check-in',
+            description: 'Arrive at destination, check into hotel, welcome and tour briefing.',
+            activities: ['Airport pickup', 'Hotel check-in', 'Welcome', 'Tour briefing']
+          },
+          {
+            day: 2,
+            title: 'Sightseeing',
+            description: 'Full day sightseeing covering major attractions and local experiences.',
+            activities: ['Major attractions', 'Local experiences', 'Cultural activities', 'Photography']
+          }
+        ]
     }
-  ]
+  }
 
-  const inclusions = [
-    'Accommodation in premium hotels',
-    'Daily breakfast and dinner',
-    'All transfers and transportation',
-    'Professional tour guide',
-    'Entry tickets to attractions',
-    'Travel insurance',
-    '24/7 customer support'
-  ]
+  const getPackageInclusions = (packageId: string) => {
+    const baseInclusions = [
+      'Accommodation as per itinerary',
+      'Daily breakfast',
+      'All transfers and transportation',
+      'Professional tour guide',
+      'All applicable taxes'
+    ]
+
+    switch (packageId) {
+      case '1': // Kashmir
+        return [
+          ...baseInclusions,
+          'Deluxe houseboat stay on Dal Lake',
+          'Shikara ride',
+          'All sightseeing as per itinerary',
+          'Travel insurance'
+        ]
+      case '2': // Kerala
+        return [
+          ...baseInclusions,
+          'Luxury houseboat stay in Alleppey',
+          'Candlelight dinner',
+          'All meals during houseboat stay',
+          'Backwater cruise',
+          'Beach resort accommodation'
+        ]
+      case '3': // Sikkim Group Departure
+        return [
+          ...baseInclusions,
+          'Premium hotel accommodations',
+          'Fixed departure group tour',
+          'All sightseeing as per itinerary',
+          'Professional tour guide',
+          'All permits and entry fees',
+          'Group coordination'
+        ]
+      case '4': // Winter Special Gangtok & Darjeeling
+        return [
+          ...baseInclusions,
+          'Winter special arrangements',
+          'Snow activity coordination',
+          'Warm clothing assistance',
+          'All permits for restricted areas',
+          'Flexible group pricing'
+        ]
+      case '5': // Mathura Vrindavan
+        return [
+          ...baseInclusions,
+          'Temple darshan arrangements',
+          'Local guide for spiritual sites',
+          'All entry fees to temples',
+          'Spiritual tour coordination'
+        ]
+      default:
+        return baseInclusions
+    }
+  }
+
+  const itinerary = getPackageItinerary(packageData?.id || '')
+  const inclusions = getPackageInclusions(packageData?.id || '')
 
   const exclusions = [
     'International/domestic flights',
@@ -151,11 +399,11 @@ const PackageDetailsPage = () => {
                 <div className="flex items-center space-x-4 text-gray-600">
                   <div className="flex items-center space-x-1">
                     <FiCalendar className="w-5 h-5" />
-                    <span>{packageData.duration}</span>
+                    <span className="text-blue-600 font-medium">{packageData.duration}</span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <FiStar className="w-5 h-5 text-gold-500 fill-current" />
-                    <span>4.8 (124 reviews)</span>
+                    <span>Highly Rated Package</span>
                   </div>
                 </div>
               </div>
@@ -191,7 +439,7 @@ const PackageDetailsPage = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-4 bg-gray-50 rounded-xl">
                   <FiCalendar className="w-8 h-8 text-primary-500 mx-auto mb-2" />
-                  <div className="font-semibold text-gray-800">{packageData.duration}</div>
+                  <div className="font-semibold text-blue-600">{packageData.duration}</div>
                   <div className="text-sm text-gray-600">Duration</div>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-xl">
@@ -206,8 +454,8 @@ const PackageDetailsPage = () => {
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-xl">
                   <FiStar className="w-8 h-8 text-primary-500 mx-auto mb-2" />
-                  <div className="font-semibold text-gray-800">4.8/5</div>
-                  <div className="text-sm text-gray-600">Rating</div>
+                  <div className="font-semibold text-gray-800">Popular</div>
+                  <div className="text-sm text-gray-600">Choice</div>
                 </div>
               </div>
             </motion.div>
@@ -309,11 +557,11 @@ const PackageDetailsPage = () => {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="text-gray-600">Duration</span>
-                  <span className="font-medium">{packageData.duration}</span>
+                  <span className="font-medium text-blue-600">{packageData.duration}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="text-gray-600">Category</span>
-                  <span className="font-medium capitalize">{packageData.category}</span>
+                  <span className="font-medium capitalize text-green-600">{packageData.category}</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-gray-100">
                   <span className="text-gray-600">Budget</span>

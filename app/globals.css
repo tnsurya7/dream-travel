@@ -123,3 +123,40 @@ a {
 .parallax-base {
   transform: translateZ(0);
 }
+
+/* Equal Height Card Utilities */
+.card-grid {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.card-equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content-flex {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-content-auto {
+  margin-top: auto;
+}
+
+/* Line clamp utilities for consistent text heights */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiMenu, FiX, FiPhone, FiMail } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -31,14 +32,29 @@ const Navbar = () => {
       <div className="bg-primary-800 text-white py-2 px-4 text-sm hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
+            <a 
+              href="tel:+919109455317"
+              className="flex items-center space-x-2 hover:text-primary-600 transition-colors"
+            >
               <FiPhone className="w-4 h-4" />
               <span>+91 9109455317</span>
-            </div>
-            <div className="flex items-center space-x-2">
+            </a>
+            <a 
+              href="mailto:nikhiljatav5588@gmail.com"
+              className="flex items-center space-x-2 hover:text-primary-600 transition-colors"
+            >
               <FiMail className="w-4 h-4" />
               <span>nikhiljatav5588@gmail.com</span>
-            </div>
+            </a>
+            <a 
+              href="https://wa.me/919109455317"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 hover:text-green-400 transition-colors"
+            >
+              <FaWhatsapp className="w-4 h-4" />
+              <span>WhatsApp</span>
+            </a>
           </div>
           <div className="text-gold-400">
             ✈️ Your Dream Journey Awaits

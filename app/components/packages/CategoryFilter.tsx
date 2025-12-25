@@ -13,25 +13,53 @@ interface CategoryFilterProps {
   categories: Category[]
   selectedCategory: string
   onCategoryChange: (categoryId: string) => void
+  selectedPriceRanges: string[]
+  onPriceRangeChange: (ranges: string[]) => void
+  selectedDurations: string[]
+  onDurationChange: (durations: string[]) => void
 }
 
-const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }: CategoryFilterProps) => {
+const CategoryFilter = ({ 
+  categories, 
+  selectedCategory, 
+  onCategoryChange,
+  selectedPriceRanges,
+  onPriceRangeChange,
+  selectedDurations,
+  onDurationChange
+}: CategoryFilterProps) => {
+  const handlePriceRangeChange = (range: string, checked: boolean) => {
+    if (checked) {
+      onPriceRangeChange([...selectedPriceRanges, range])
+    } else {
+      onPriceRangeChange(selectedPriceRanges.filter(r => r !== range))
+    }
+  }
+
+  const handleDurationChange = (duration: string, checked: boolean) => {
+    if (checked) {
+      onDurationChange([...selectedDurations, duration])
+    } else {
+      onDurationChange(selectedDurations.filter(d => d !== duration))
+    }
+  }
+
   const getCategoryIcon = (categoryId: string) => {
     switch (categoryId) {
-      case 'honeymoon':
-        return FiHeart
-      case 'wedding':
-        return FiGift
-      case 'family':
+      case 'adventure':
+        return FiGlobe
+      case 'nature':
         return FiUsers
       case 'group':
         return FiUsers
-      case 'educational':
+      case 'family':
+        return FiUsers
+      case 'spiritual':
         return FiBookOpen
-      case 'international':
-        return FiGlobe
-      case 'affordable':
-        return FiDollarSign
+      case 'heritage':
+        return FiGift
+      case 'beach':
+        return FiHeart
       default:
         return FiGlobe
     }
@@ -39,20 +67,20 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }: Cate
 
   const getCategoryColor = (categoryId: string) => {
     switch (categoryId) {
-      case 'honeymoon':
-        return 'from-pink-500 to-red-500'
-      case 'wedding':
-        return 'from-purple-500 to-pink-500'
-      case 'family':
-        return 'from-blue-500 to-cyan-500'
-      case 'group':
+      case 'adventure':
+        return 'from-orange-500 to-red-500'
+      case 'nature':
         return 'from-green-500 to-emerald-500'
-      case 'educational':
-        return 'from-orange-500 to-yellow-500'
-      case 'international':
-        return 'from-indigo-500 to-purple-500'
-      case 'affordable':
-        return 'from-emerald-500 to-green-500'
+      case 'group':
+        return 'from-blue-500 to-cyan-500'
+      case 'family':
+        return 'from-purple-500 to-pink-500'
+      case 'spiritual':
+        return 'from-yellow-500 to-orange-500'
+      case 'heritage':
+        return 'from-amber-500 to-yellow-500'
+      case 'beach':
+        return 'from-cyan-500 to-blue-500'
       default:
         return 'from-gray-500 to-gray-600'
     }
@@ -111,21 +139,41 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }: Cate
       <div className="mt-8 pt-6 border-t border-gray-200">
         <h4 className="text-lg font-semibold text-gray-800 mb-4">Price Range</h4>
         <div className="space-y-3">
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">Under ₹10,000</span>
+          <label className="flex items-center justify-between space-x-3 cursor-pointer">
+            <div className="flex items-center space-x-3">
+              <input 
+                type="checkbox" 
+                className="w-4 h-4 text-primary-600 rounded"
+                checked={selectedPriceRanges.includes('under-10k')}
+                onChange={(e) => handlePriceRangeChange('under-10k', e.target.checked)}
+              />
+              <span className="text-gray-700">Under ₹10,000</span>
+            </div>
+            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">1</span>
           </label>
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">₹10,000 - ₹50,000</span>
+          <label className="flex items-center justify-between space-x-3 cursor-pointer">
+            <div className="flex items-center space-x-3">
+              <input 
+                type="checkbox" 
+                className="w-4 h-4 text-primary-600 rounded"
+                checked={selectedPriceRanges.includes('10k-50k')}
+                onChange={(e) => handlePriceRangeChange('10k-50k', e.target.checked)}
+              />
+              <span className="text-gray-700">₹10,000 - ₹50,000</span>
+            </div>
+            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">2</span>
           </label>
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">₹50,000 - ₹1,00,000</span>
-          </label>
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">Above ₹1,00,000</span>
+          <label className="flex items-center justify-between space-x-3 cursor-pointer">
+            <div className="flex items-center space-x-3">
+              <input 
+                type="checkbox" 
+                className="w-4 h-4 text-primary-600 rounded"
+                checked={selectedPriceRanges.includes('50k-100k')}
+                onChange={(e) => handlePriceRangeChange('50k-100k', e.target.checked)}
+              />
+              <span className="text-gray-700">₹50,000 - ₹1,00,000</span>
+            </div>
+            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">2</span>
           </label>
         </div>
       </div>
@@ -134,20 +182,35 @@ const CategoryFilter = ({ categories, selectedCategory, onCategoryChange }: Cate
       <div className="mt-8 pt-6 border-t border-gray-200">
         <h4 className="text-lg font-semibold text-gray-800 mb-4">Duration</h4>
         <div className="space-y-3">
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">1-3 Days</span>
-          </label>
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">4-7 Days</span>
-          </label>
-          <label className="flex items-center space-x-3 cursor-pointer">
-            <input type="checkbox" className="w-4 h-4 text-primary-600 rounded" />
-            <span className="text-gray-700">8+ Days</span>
+          <label className="flex items-center justify-between space-x-3 cursor-pointer">
+            <div className="flex items-center space-x-3">
+              <input 
+                type="checkbox" 
+                className="w-4 h-4 text-primary-600 rounded"
+                checked={selectedDurations.includes('4-7')}
+                onChange={(e) => handleDurationChange('4-7', e.target.checked)}
+              />
+              <span className="text-gray-700">4-7 Days</span>
+            </div>
+            <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">5</span>
           </label>
         </div>
       </div>
+
+      {/* Clear Filters Button */}
+      {(selectedPriceRanges.length > 0 || selectedDurations.length > 0) && (
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <button
+            onClick={() => {
+              onPriceRangeChange([])
+              onDurationChange([])
+            }}
+            className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-medium transition-colors"
+          >
+            Clear All Filters
+          </button>
+        </div>
+      )}
     </div>
   )
 }

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiPhone, FiMail, FiMapPin, FiInstagram, FiClock, FiSend, FiCheck } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
 
 const ContactPage = () => {
@@ -68,8 +69,8 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: FiPhone,
-      title: 'Phone Numbers',
-      details: ['+91 9109455317', '+91 8103797070'],
+      title: 'Phone Number',
+      details: ['+91 9109455317'],
       action: 'tel:+919109455317',
       color: 'from-green-500 to-emerald-500'
     },
@@ -81,17 +82,24 @@ const ContactPage = () => {
       color: 'from-blue-500 to-cyan-500'
     },
     {
+      icon: FaWhatsapp,
+      title: 'WhatsApp Chat',
+      details: ['+91 9109455317'],
+      action: 'https://wa.me/919109455317',
+      color: 'from-green-500 to-green-600'
+    },
+    {
       icon: FiMapPin,
       title: 'Office Address',
       details: ['Pathriya Fatak, Mangaj Ward No. 6,', 'Madhya Pradesh, India'],
-      action: '#',
+      action: 'https://www.google.com/maps/search/?api=1&query=Pathriya+Fatak,+Mangaj+Ward+No.+6,+Madhya+Pradesh,+India',
       color: 'from-red-500 to-pink-500'
     },
     {
       icon: FiInstagram,
-      title: 'Social Media',
-      details: ['Follow us on Instagram'],
-      action: '#',
+      title: 'Follow Us',
+      details: ['@__.jaruriyaji.__00'],
+      action: 'https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA==',
       color: 'from-purple-500 to-indigo-500'
     }
   ]
@@ -151,30 +159,45 @@ const ContactPage = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4`}>
-                    <info.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {info.title}
-                  </h3>
-                  <div className="space-y-1">
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-gray-600">
-                        {info.action.startsWith('tel:') || info.action.startsWith('mailto:') ? (
-                          <a
-                            href={info.action}
-                            className="hover:text-primary-600 transition-colors"
-                          >
+                  {info.action !== '#' ? (
+                    <a
+                      href={info.action}
+                      target={info.action.startsWith('http') ? '_blank' : undefined}
+                      rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="block bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+                    >
+                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                        <info.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors">
+                        {info.title}
+                      </h3>
+                      <div className="space-y-1">
+                        {info.details.map((detail, idx) => (
+                          <p key={idx} className="text-gray-600 group-hover:text-gray-800 transition-colors">
                             {detail}
-                          </a>
-                        ) : (
-                          detail
-                        )}
-                      </p>
-                    ))}
-                  </div>
+                          </p>
+                        ))}
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4`}>
+                        <info.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                        {info.title}
+                      </h3>
+                      <div className="space-y-1">
+                        {info.details.map((detail, idx) => (
+                          <p key={idx} className="text-gray-600">
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -359,14 +382,38 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-1">Dream Travel Agency</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <a 
+                    href="https://www.google.com/maps/search/?api=1&query=Pathriya+Fatak,+Mangaj+Ward+No.+6,+Madhya+Pradesh,+India"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-600 leading-relaxed hover:text-primary-600 transition-colors cursor-pointer block"
+                  >
                     Pathriya Fatak, Mangaj Ward No. 6<br />
                     Madhya Pradesh, India
-                  </p>
+                  </a>
                   <div className="mt-2 flex flex-col space-y-1 text-xs text-gray-500">
-                    <span>📞 +91 9109455317</span>
-                    <span>📞 +91 8103797070</span>
-                    <span>✉️ nikhiljatav5588@gmail.com</span>
+                    <a href="tel:+919109455317" className="hover:text-primary-600 transition-colors">
+                      📞 +91 9109455317
+                    </a>
+                    <a href="mailto:nikhiljatav5588@gmail.com" className="hover:text-primary-600 transition-colors">
+                      ✉️ nikhiljatav5588@gmail.com
+                    </a>
+                    <a 
+                      href="https://wa.me/919109455317"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary-600 transition-colors"
+                    >
+                      📱 WhatsApp Chat
+                    </a>
+                    <a 
+                      href="https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary-600 transition-colors"
+                    >
+                      📷 @__.jaruriyaji.__00
+                    </a>
                   </div>
                 </div>
               </div>

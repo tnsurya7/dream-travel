@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiX, FiCalendar, FiUsers, FiMail, FiPhone, FiUser, FiMessageSquare, FiCheck } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
 
 interface EnquiryFormProps {
@@ -305,6 +306,23 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
                 </a>
                 <a href="mailto:nikhiljatav5588@gmail.com" className="text-primary-600 hover:text-primary-700 font-medium">
                   ✉️ nikhiljatav5588@gmail.com
+                </a>
+                <a 
+                  href="https://wa.me/919109455317"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:text-green-700 font-medium flex items-center space-x-1"
+                >
+                  <FaWhatsapp className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
+                <a 
+                  href="https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-600 hover:text-primary-700 font-medium"
+                >
+                  📱 @__.jaruriyaji.__00
                 </a>
               </div>
             </div>

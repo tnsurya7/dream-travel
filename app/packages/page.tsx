@@ -10,18 +10,21 @@ import type { Metadata } from 'next'
 const PackagesPage = () => {
   const [packages, setPackages] = useState<any[]>([])
   const [filteredPackages, setFilteredPackages] = useState<any[]>([])
+  const [categories, setCategories] = useState<any[]>([])
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [sortBy, setSortBy] = useState('popular')
+  const [selectedPriceRanges, setSelectedPriceRanges] = useState<string[]>([])
+  const [selectedDurations, setSelectedDurations] = useState<string[]>([])
 
-  const categories = [
+  const initialCategories = [
     { id: 'all', name: 'All Packages', count: 0 },
-    { id: 'honeymoon', name: 'Honeymoon Packages', count: 0 },
-    { id: 'wedding', name: 'Wedding Tour Packages', count: 0 },
-    { id: 'family', name: 'Family Tour Packages', count: 0 },
-    { id: 'group', name: 'Group Tour Packages', count: 0 },
-    { id: 'educational', name: 'Educational Tour Packages', count: 0 },
-    { id: 'international', name: 'International Tours', count: 0 },
-    { id: 'affordable', name: 'Low & Affordable Packages', count: 0 },
+    { id: 'adventure', name: 'Adventure Tours', count: 0 },
+    { id: 'nature', name: 'Nature & Wildlife', count: 0 },
+    { id: 'group', name: 'Group Tours', count: 0 },
+    { id: 'family', name: 'Family Tours', count: 0 },
+    { id: 'spiritual', name: 'Spiritual Tours', count: 0 },
+    { id: 'heritage', name: 'Heritage Tours', count: 0 },
+    { id: 'beach', name: 'Beach Holidays', count: 0 },
   ]
 
   useEffect(() => {
@@ -33,28 +36,88 @@ const PackagesPage = () => {
     setPackages(allPackages)
     setFilteredPackages(allPackages)
 
-    // Update category counts
-    categories.forEach(category => {
+    // Update category counts based on actual available packages and their tags
+    const availablePackages = allPackages.filter(pkg => pkg.price > 0) // Only count available packages
+    
+    initialCategories.forEach(category => {
       if (category.id === 'all') {
-        category.count = allPackages.length
-      } else if (category.id === 'affordable') {
-        category.count = allPackages.filter(pkg => pkg.budget === 'affordable').length
+        category.count = availablePackages.length // 5 available packages
       } else {
-        category.count = allPackages.filter(pkg => pkg.category === category.id).length
+        // Count packages that have the category as a tag or primary category
+        category.count = availablePackages.filter(pkg => {
+          const categoryMap: { [key: string]: string } = {
+            'adventure': 'adventure',
+            'nature': 'nature', 
+            'group': 'group',
+            'family': 'family',
+            'spiritual': 'spiritual',
+            'heritage': 'heritage',
+            'beach': 'beach'
+          }
+          
+          const tagToMatch = categoryMap[category.id]
+          return pkg.tags.includes(tagToMatch) || pkg.category === category.id
+        }).length
       }
     })
+    
+    // Filter out categories with 0 count
+    const filteredCategories = initialCategories.filter(cat => cat.count > 0)
+    setCategories(filteredCategories)
   }, [])
 
   useEffect(() => {
-    let filtered = packages
+    let filtered = packages.filter(pkg => pkg.price > 0) // Only show available packages
 
-    // Filter by category
+    // Filter by category (using tags)
     if (selectedCategory !== 'all') {
-      if (selectedCategory === 'affordable') {
-        filtered = packages.filter(pkg => pkg.budget === 'affordable')
-      } else {
-        filtered = packages.filter(pkg => pkg.category === selectedCategory)
-      }
+      filtered = filtered.filter(pkg => {
+        const categoryMap: { [key: string]: string } = {
+          'adventure': 'adventure',
+          'nature': 'nature', 
+          'group': 'group',
+          'family': 'family',
+          'spiritual': 'spiritual',
+          'heritage': 'heritage',
+          'beach': 'beach'
+        }
+        
+        const tagToMatch = categoryMap[selectedCategory]
+        return pkg.tags.includes(tagToMatch) || pkg.category === selectedCategory
+      })
+    }
+
+    // Filter by price range
+    if (selectedPriceRanges.length > 0) {
+      filtered = filtered.filter(pkg => {
+        return selectedPriceRanges.some(range => {
+          switch (range) {
+            case 'under-10k':
+              return pkg.price < 10000 // Mathura (₹5,999)
+            case '10k-50k':
+              return pkg.price >= 10000 && pkg.price <= 50000 // Kashmir (₹22,500), Darjeeling (₹16,699)
+            case '50k-100k':
+              return pkg.price >= 50000 && pkg.price <= 100000 // Kerala (₹72,500), Sikkim (₹56,800)
+            default:
+              return true
+          }
+        })
+      })
+    }
+
+    // Filter by duration
+    if (selectedDurations.length > 0) {
+      filtered = filtered.filter(pkg => {
+        const days = parseInt(pkg.duration.split(' ')[0])
+        return selectedDurations.some(duration => {
+          switch (duration) {
+            case '4-7':
+              return days >= 4 && days <= 7
+            default:
+              return true
+          }
+        })
+      })
     }
 
     // Sort packages
@@ -78,7 +141,7 @@ const PackagesPage = () => {
     }
 
     setFilteredPackages(filtered)
-  }, [selectedCategory, sortBy, packages])
+  }, [selectedCategory, sortBy, packages, selectedPriceRanges, selectedDurations])
 
   const handleCategoryChange = (categoryId: string) => {
     setSelectedCategory(categoryId)
@@ -114,6 +177,10 @@ const PackagesPage = () => {
               categories={categories}
               selectedCategory={selectedCategory}
               onCategoryChange={handleCategoryChange}
+              selectedPriceRanges={selectedPriceRanges}
+              onPriceRangeChange={setSelectedPriceRanges}
+              selectedDurations={selectedDurations}
+              onDurationChange={setSelectedDurations}
             />
           </div>
 

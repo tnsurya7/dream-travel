@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { FiPhone, FiMail, FiMapPin, FiInstagram, FiHeart } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 const Footer = () => {
@@ -14,13 +15,12 @@ const Footer = () => {
   ]
 
   const packageCategories = [
-    'Wedding Tour Packages',
-    'Honeymoon Packages',
-    'Educational Tours',
-    'Family Tours',
+    'Adventure Tours',
+    'Nature & Wildlife',
     'Group Tours',
-    'India Tours',
-    'International Tours',
+    'Family Tours',
+    'Spiritual Tours',
+    'Heritage Tours',
   ]
 
   return (
@@ -51,7 +51,17 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://wa.me/919109455317"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+              >
+                <FaWhatsapp className="w-5 h-5 text-white" />
+              </a>
+              <a
+                href="https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
               >
                 <FiInstagram className="w-5 h-5" />
@@ -112,24 +122,56 @@ const Footer = () => {
           >
             <h4 className="font-semibold text-lg text-gold-400">Contact Us</h4>
             <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <FiPhone className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" />
+              <a 
+                href="tel:+919109455317"
+                className="flex items-start space-x-3 text-gray-300 hover:text-white transition-colors group cursor-pointer"
+              >
+                <FiPhone className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0 group-hover:text-primary-300" />
                 <div className="text-sm">
-                  <p className="text-gray-300">+91 9109455317</p>
-                  <p className="text-gray-300">+91 8103797070</p>
+                  <p className="group-hover:underline">+91 9109455317</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <FiMail className="w-5 h-5 text-primary-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">nikhiljatav5588@gmail.com</p>
-              </div>
-              <div className="flex items-start space-x-3">
-                <FiMapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">
+              </a>
+              
+              <a 
+                href="mailto:nikhiljatav5588@gmail.com"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors group cursor-pointer"
+              >
+                <FiMail className="w-5 h-5 text-primary-400 flex-shrink-0 group-hover:text-primary-300" />
+                <p className="text-sm group-hover:underline">nikhiljatav5588@gmail.com</p>
+              </a>
+              
+              <a 
+                href="https://wa.me/919109455317"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors group cursor-pointer"
+              >
+                <FaWhatsapp className="w-5 h-5 text-primary-400 flex-shrink-0 group-hover:text-primary-300" />
+                <p className="text-sm group-hover:underline">WhatsApp Chat</p>
+              </a>
+              
+              <a 
+                href="https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors group cursor-pointer"
+              >
+                <FiInstagram className="w-5 h-5 text-primary-400 flex-shrink-0 group-hover:text-primary-300" />
+                <p className="text-sm group-hover:underline">@__.jaruriyaji.__00</p>
+              </a>
+              
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Pathriya+Fatak,+Mangaj+Ward+No.+6,+Madhya+Pradesh,+India"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-3 text-gray-300 hover:text-white transition-colors group cursor-pointer"
+              >
+                <FiMapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0 group-hover:text-primary-300" />
+                <p className="text-sm group-hover:underline">
                   Pathriya Fatak, Mangaj Ward No. 6,<br />
                   Madhya Pradesh, India
                 </p>
-              </div>
+              </a>
             </div>
           </motion.div>
         </div>
