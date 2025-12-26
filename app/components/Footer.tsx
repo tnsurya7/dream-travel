@@ -35,21 +35,21 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4"
           >
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-start mb-4 pl-4">
               <div className="relative">
                 <Image
                   src="/header-logo.png"
                   alt="Dream Travel Agency Logo"
-                  width={200}
-                  height={200}
+                  width={180}
+                  height={180}
                   className="object-contain hover:scale-110 transition-transform duration-300"
                 />
               </div>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-gray-300 text-sm leading-relaxed text-left pl-4">
               Your trusted partner for unforgettable travel experiences. We create memories that last a lifetime with our premium travel packages.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex justify-start space-x-4 pl-4">
               <a
                 href="https://wa.me/919109455317"
                 target="_blank"
