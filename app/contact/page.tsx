@@ -38,7 +38,7 @@ const ContactPage = () => {
       const publicKey = 'YOUR_PUBLIC_KEY'
 
       const templateParams = {
-        to_email: 'nikhiljatav5588@gmail.com',
+        to_email: 'dreamtravelagency395@gmail.com',
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
@@ -77,8 +77,8 @@ const ContactPage = () => {
     {
       icon: FiMail,
       title: 'Email Address',
-      details: ['nikhiljatav5588@gmail.com'],
-      action: 'mailto:nikhiljatav5588@gmail.com',
+      details: ['dreamtravelagency395@gmail.com'],
+      action: 'mailto:dreamtravelagency395@gmail.com',
       color: 'from-blue-500 to-cyan-500'
     },
     {
@@ -98,8 +98,8 @@ const ContactPage = () => {
     {
       icon: FiInstagram,
       title: 'Follow Us',
-      details: ['@__.jaruriyaji.__00'],
-      action: 'https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA==',
+      details: ['@dreamtravellers3'],
+      action: 'https://www.instagram.com/dreamtravellers3?igsh=MWM1a2I3NndpdXoydQ==',
       color: 'from-purple-500 to-indigo-500'
     }
   ]
@@ -395,8 +395,8 @@ const ContactPage = () => {
                     <a href="tel:+919109455317" className="hover:text-primary-600 transition-colors">
                       📞 +91 9109455317
                     </a>
-                    <a href="mailto:nikhiljatav5588@gmail.com" className="hover:text-primary-600 transition-colors">
-                      ✉️ nikhiljatav5588@gmail.com
+                    <a href="mailto:dreamtravelagency395@gmail.com" className="hover:text-primary-600 transition-colors">
+                      ✉️ dreamtravelagency395@gmail.com
                     </a>
                     <a 
                       href="https://wa.me/919109455317"
@@ -407,12 +407,12 @@ const ContactPage = () => {
                       📱 WhatsApp Chat
                     </a>
                     <a 
-                      href="https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA=="
+                      href="https://www.instagram.com/dreamtravellers3?igsh=MWM1a2I3NndpdXoydQ=="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-primary-600 transition-colors"
                     >
-                      📷 @__.jaruriyaji.__00
+                      📷 @dreamtravellers3
                     </a>
                   </div>
                 </div>

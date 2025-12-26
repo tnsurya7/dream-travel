@@ -4,33 +4,30 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FiPlay, FiArrowRight } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
-import { useState } from 'react'
 
 const Hero = () => {
-  const [videoPlaying, setVideoPlaying] = useState(false)
-
   const heroImages = [
     'https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
     'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    '/hero.png'
   ]
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background Slideshow */}
+      {/* Animated Background Image */}
       <div className="absolute inset-0">
         <motion.div
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${heroImages[0]})`
+            backgroundImage: `url(/hero.png)`
           }}
           animate={{
-            backgroundImage: heroImages.map(img => `url(${img})`)
+            scale: [1, 1.1, 1]
           }}
           transition={{
-            duration: 15,
+            duration: 8,
             repeat: Infinity,
-            ease: "linear"
+            ease: "easeInOut"
           }}
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -77,7 +74,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-10 h-full flex items-center justify-center pt-20 md:pt-0">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -88,7 +85,7 @@ const Hero = () => {
             {/* Main Headline */}
             <div className="space-y-4">
               <motion.h1
-                className="text-4xl md:text-6xl lg:text-7xl font-luxury font-bold text-white leading-tight"
+                className="text-3xl md:text-6xl lg:text-7xl font-luxury font-bold text-white leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}

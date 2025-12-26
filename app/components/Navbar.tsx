@@ -40,11 +40,11 @@ const Navbar = () => {
               <span>+91 9109455317</span>
             </a>
             <a 
-              href="mailto:nikhiljatav5588@gmail.com"
+              href="mailto:dreamtravelagency395@gmail.com"
               className="flex items-center space-x-2 hover:text-primary-600 transition-colors"
             >
               <FiMail className="w-4 h-4" />
-              <span>nikhiljatav5588@gmail.com</span>
+              <span>dreamtravelagency395@gmail.com</span>
             </a>
             <a 
               href="https://wa.me/919109455317"
@@ -73,7 +73,7 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-28 md:h-32">
+          <div className="flex justify-between items-center h-20 md:h-28 lg:h-32">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <div className="relative">
@@ -82,7 +82,7 @@ const Navbar = () => {
                   alt="Dream Travel Agency Logo"
                   width={400}
                   height={400}
-                  className="object-contain w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 hover:scale-105 transition-transform duration-300"
+                  className="object-contain w-32 h-32 md:w-52 md:h-52 lg:w-60 lg:h-60 hover:scale-105 transition-all duration-300"
                   priority
                 />
               </div>

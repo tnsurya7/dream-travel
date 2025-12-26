@@ -45,7 +45,7 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
       const publicKey = 'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
 
       const templateParams = {
-        to_email: 'nikhiljatav5588@gmail.com',
+        to_email: 'dreamtravelagency395@gmail.com',
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
@@ -304,8 +304,8 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
                 <a href="tel:+919109455317" className="text-primary-600 hover:text-primary-700 font-medium">
                   📞 +91 9109455317
                 </a>
-                <a href="mailto:nikhiljatav5588@gmail.com" className="text-primary-600 hover:text-primary-700 font-medium">
-                  ✉️ nikhiljatav5588@gmail.com
+                <a href="mailto:dreamtravelagency395@gmail.com" className="text-primary-600 hover:text-primary-700 font-medium">
+                  ✉️ dreamtravelagency395@gmail.com
                 </a>
                 <a 
                   href="https://wa.me/919109455317"
@@ -317,12 +317,12 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
                   <span>WhatsApp</span>
                 </a>
                 <a 
-                  href="https://www.instagram.com/__.jaruriyaji.__00?igsh=MXExY3FqOTU1cnNueA=="
+                  href="https://www.instagram.com/dreamtravellers3?igsh=MWM1a2I3NndpdXoydQ=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-600 hover:text-primary-700 font-medium"
                 >
-                  📱 @__.jaruriyaji.__00
+                  📱 @dreamtravellers3
                 </a>
               </div>
             </div>

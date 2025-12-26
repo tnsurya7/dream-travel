@@ -68,7 +68,44 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Logo Background Blur Effects */
+/* Logo Glow Effects */
+.logo-glow {
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.2)) 
+          drop-shadow(0 0 10px rgba(59, 130, 246, 0.1));
+  transition: all 0.3s ease;
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)) 
+          drop-shadow(0 0 15px rgba(59, 130, 246, 0.15));
+  transform: scale(1.05);
+}
+
+/* Logo Background Blur */
+.logo-blur-bg {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.logo-blur-bg:hover {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.logo-glow-footer {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) 
+          drop-shadow(0 0 16px rgba(251, 191, 36, 0.3));
+  transition: all 0.3s ease;
+}
+
+.logo-glow-footer:hover {
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.6)) 
+          drop-shadow(0 0 24px rgba(251, 191, 36, 0.5))
+          drop-shadow(0 0 32px rgba(168, 85, 247, 0.3));
+  transform: scale(1.1);
+}
 .logo-bg-blur {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
