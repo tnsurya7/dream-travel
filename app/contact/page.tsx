@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiPhone, FiMail, FiMapPin, FiInstagram, FiClock, FiSend, FiCheck } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
-import emailjs from 'emailjs-com'
+import SuccessNotification from '../components/SuccessNotification'
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +17,9 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMessage] = useState('')
+  const [notificationType, setNotificationType] = useState<'success' | 'error'>('success')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -32,35 +35,39 @@ const ContactPage = () => {
     setError('')
 
     try {
-      // EmailJS configuration (replace with your actual values)
-      const serviceId = 'YOUR_SERVICE_ID'
-      const templateId = 'YOUR_CONTACT_TEMPLATE_ID'
-      const publicKey = 'YOUR_PUBLIC_KEY'
-
-      const templateParams = {
-        to_email: 'dreamtravelagency395@gmail.com',
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-        reply_to: formData.email
-      }
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
-      setIsSubmitted(true)
-      
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        setNotificationMessage('Message sent successfully! We\'ll get back to you within 24 hours.')
+        setNotificationType('success')
+        setShowNotification(true)
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        throw new Error(result.message || 'Failed to send message')
+      }
     } catch (error) {
-      console.error('Error sending email:', error)
+      console.error('Error sending message:', error)
       setError('Failed to send message. Please try again or contact us directly.')
+      setNotificationMessage('Failed to send message. Please try again.')
+      setNotificationType('error')
+      setShowNotification(true)
     } finally {
       setIsSubmitting(false)
     }
@@ -434,6 +441,14 @@ const ContactPage = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Success Notification */}
+      <SuccessNotification
+        show={showNotification}
+        message={notificationMessage}
+        type={notificationType}
+        onClose={() => setShowNotification(false)}
+      />
     </div>
   )
 }

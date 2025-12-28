@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiX, FiCalendar, FiUsers, FiMail, FiPhone, FiUser, FiMessageSquare, FiCheck } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
+import SuccessNotification from './SuccessNotification'
 
 interface EnquiryFormProps {
   packageData?: any
@@ -24,6 +25,9 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMessage] = useState('')
+  const [notificationType, setNotificationType] = useState<'success' | 'error'>('success')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -39,41 +43,35 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
     setError('')
 
     try {
-      // Initialize EmailJS (you'll need to set up your EmailJS account)
-      const serviceId = 'YOUR_SERVICE_ID' // Replace with your EmailJS service ID
-      const templateId = 'YOUR_TEMPLATE_ID' // Replace with your EmailJS template ID
-      const publicKey = 'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-
-      const templateParams = {
-        to_email: 'dreamtravelagency395@gmail.com',
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        package_name: formData.packageName,
-        travel_date: formData.travelDate,
-        number_of_persons: formData.numberOfPersons,
-        message: formData.message,
-        reply_to: formData.email
+      const enquiryData = {
+        ...formData,
+        packageName: packageData?.title || formData.packageName
       }
 
-      // Send email to admin
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(enquiryData),
+      })
 
-      // Send confirmation email to customer
-      const customerTemplateParams = {
-        to_email: formData.email,
-        customer_name: formData.name,
-        package_name: formData.packageName,
-        travel_date: formData.travelDate,
-        number_of_persons: formData.numberOfPersons
+      const result = await response.json()
+
+      if (result.success) {
+        setIsSubmitted(true)
+        setNotificationMessage('Booking enquiry sent successfully! We\'ll contact you within 24 hours.')
+        setNotificationType('success')
+        setShowNotification(true)
+      } else {
+        throw new Error(result.message || 'Failed to send enquiry')
       }
-
-      await emailjs.send(serviceId, 'customer_confirmation_template', customerTemplateParams, publicKey)
-
-      setIsSubmitted(true)
     } catch (error) {
-      console.error('Error sending email:', error)
+      console.error('Error sending enquiry:', error)
       setError('Failed to send enquiry. Please try again or contact us directly.')
+      setNotificationMessage('Failed to send enquiry. Please try again.')
+      setNotificationType('error')
+      setShowNotification(true)
     } finally {
       setIsSubmitting(false)
     }
@@ -81,7 +79,7 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
 
   if (isSubmitted) {
     return (
-      <AnimatePresence>
+      <AnimatePresence key="success-modal">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -120,23 +118,24 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
   }
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-        onClick={onClose}
-      >
+    <>
+      <AnimatePresence key="enquiry-modal">
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-          onClick={(e) => e.stopPropagation()}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={onClose}
         >
-          {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-200">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div>
               <h2 className="text-2xl font-bold text-gray-800">Book Your Dream Trip</h2>
               {packageData && (
@@ -329,7 +328,16 @@ const EnquiryForm = ({ packageData, onClose }: EnquiryFormProps) => {
           </form>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
+      </AnimatePresence>
+
+      {/* Success Notification */}
+      <SuccessNotification
+        show={showNotification}
+        message={notificationMessage}
+        type={notificationType}
+        onClose={() => setShowNotification(false)}
+      />
+    </>
   )
 }
 
