@@ -259,92 +259,92 @@ export const getAdminEmailTemplate = (formData: any) => {
           
           <div class="content">
             <div class="welcome-badge">
-              🚀 **New Lead Alert**
+              🚀 <strong>New Lead Alert</strong>
             </div>
             
             <div class="enquiry-details">
-              <h3>📋 **Customer Details**</h3>
+              <h3>📋 <strong>Customer Details</strong></h3>
               
               <div class="detail-row">
-                <span class="detail-label">👤 **Name:**</span>
-                <span class="detail-value">**${formData.name}**</span>
+                <span class="detail-label">👤 <strong>Name:</strong></span>
+                <span class="detail-value"><strong>${formData.name}</strong></span>
               </div>
               
               <div class="detail-row">
-                <span class="detail-label">📧 **Email:**</span>
-                <span class="detail-value">**${formData.email}**</span>
+                <span class="detail-label">📧 <strong>Email:</strong></span>
+                <span class="detail-value"><strong>${formData.email}</strong></span>
               </div>
               
               <div class="detail-row">
-                <span class="detail-label">📱 **Phone:**</span>
-                <span class="detail-value">**${formData.phone || 'Not provided'}**</span>
+                <span class="detail-label">📱 <strong>Phone:</strong></span>
+                <span class="detail-value"><strong>${formData.phone || 'Not provided'}</strong></span>
               </div>
               
               ${formData.packageName ? `
               <div class="detail-row">
-                <span class="detail-label">🎒 **Package:**</span>
-                <span class="detail-value">**${formData.packageName}**</span>
+                <span class="detail-label">🎒 <strong>Package:</strong></span>
+                <span class="detail-value"><strong>${formData.packageName}</strong></span>
               </div>
               ` : ''}
               
               ${formData.subject ? `
               <div class="detail-row">
-                <span class="detail-label">📝 **Subject:**</span>
-                <span class="detail-value">**${formData.subject}**</span>
+                <span class="detail-label">📝 <strong>Subject:</strong></span>
+                <span class="detail-value"><strong>${formData.subject}</strong></span>
               </div>
               ` : ''}
               
               ${formData.travelDate ? `
               <div class="detail-row">
-                <span class="detail-label">📅 **Travel Date:**</span>
-                <span class="detail-value">**${formData.travelDate}**</span>
+                <span class="detail-label">📅 <strong>Travel Date:</strong></span>
+                <span class="detail-value"><strong>${formData.travelDate}</strong></span>
               </div>
               ` : ''}
               
               ${formData.numberOfPersons ? `
               <div class="detail-row">
-                <span class="detail-label">👥 **Persons:**</span>
-                <span class="detail-value">**${formData.numberOfPersons}**</span>
+                <span class="detail-label">👥 <strong>Persons:</strong></span>
+                <span class="detail-value"><strong>${formData.numberOfPersons}</strong></span>
               </div>
               ` : ''}
               
               <div class="detail-row">
-                <span class="detail-label">💬 **Message:**</span>
+                <span class="detail-label">💬 <strong>Message:</strong></span>
                 <div class="detail-value">
                   <div class="message-box">
-                    **${formData.message}**
+                    <strong>${formData.message}</strong>
                   </div>
                 </div>
               </div>
             </div>
             
             <div class="timestamp">
-              📅 **Received:** ${new Date().toLocaleString()}<br>
-              🌐 **Source:** Dream Travel Agency Website
+              📅 <strong>Received:</strong> ${new Date().toLocaleString()}<br>
+              🌐 <strong>Source:</strong> Dream Travel Agency Website
             </div>
           </div>
           
           <div class="footer">
             <div class="footer-brand">✈️ Dream Travel Agency</div>
-            <p style="font-size: 20px; margin-bottom: 30px;">**🌟 Making Dreams Come True, One Journey at a Time 🌟**</p>
+            <p style="font-size: 20px; margin-bottom: 30px;"><strong>🌟 Making Dreams Come True, One Journey at a Time 🌟</strong></p>
             
             <div class="contact-grid">
               <div class="contact-item">
-                <strong>📍 **Address**</strong><br>
-                **Pathriya Fatak, Mangaj Ward No. 6**<br>
-                **Madhya Pradesh, India**
+                <strong>📍 Address</strong><br>
+                <strong>Pathriya Fatak, Mangaj Ward No. 6</strong><br>
+                <strong>Madhya Pradesh, India</strong>
               </div>
               <div class="contact-item">
-                <strong>📞 **Phone**</strong><br>
-                <a href="tel:+919109455317">**+91 9109455317**</a>
+                <strong>📞 Phone</strong><br>
+                <a href="tel:+919109455317"><strong>+91 9109455317</strong></a>
               </div>
               <div class="contact-item">
-                <strong>✉️ **Email**</strong><br>
-                <a href="mailto:dreamtravelagency395@gmail.com">**dreamtravelagency395@gmail.com**</a>
+                <strong>✉️ Email</strong><br>
+                <a href="mailto:dreamtravelagency395@gmail.com"><strong>dreamtravelagency395@gmail.com</strong></a>
               </div>
               <div class="contact-item">
-                <strong>📱 **WhatsApp**</strong><br>
-                <a href="https://wa.me/919109455317">**Chat Now**</a>
+                <strong>📱 WhatsApp</strong><br>
+                <a href="https://wa.me/919109455317"><strong>Chat Now</strong></a>
               </div>
             </div>
           </div>
@@ -678,65 +678,65 @@ export const getCustomerEmailTemplate = (formData: any) => {
               <span class="brand-emoji">✈️</span>
               <span class="brand-text">Dream Travel Agency</span>
             </div>
-            <h1>🎉 **Thank You, ${formData.name}!**</h1>
-            <p>✅ **Your enquiry has been received successfully**</p>
+            <h1>🎉 <strong>Thank You, ${formData.name}!</strong></h1>
+            <p>✅ <strong>Your enquiry has been received successfully</strong></p>
           </div>
           
           <div class="content">
             <div class="success-badge">
-              🚀 **Enquiry Confirmed Successfully!**
+              🚀 <strong>Enquiry Confirmed Successfully!</strong>
             </div>
             
             <div class="highlight-box">
-              <h2>🌟 **Your Dream Trip Awaits!** 🌟</h2>
+              <h2>🌟 <strong>Your Dream Trip Awaits!</strong> 🌟</h2>
               <p>
-                **We've received your enquiry and our travel experts will contact you within 24 hours to help plan your perfect trip. 
-                Get ready for an unforgettable journey!** ✨
+                <strong>We've received your enquiry and our travel experts will contact you within 24 hours to help plan your perfect trip. 
+                Get ready for an unforgettable journey!</strong> ✨
               </p>
             </div>
             
             <div class="summary-section">
-              <h3>📋 **Your Enquiry Summary**</h3>
+              <h3>📋 <strong>Your Enquiry Summary</strong></h3>
               <ul class="summary-list">
-                <li><strong>👤 **Name:**</strong> **${formData.name}**</li>
-                <li><strong>📧 **Email:**</strong> **${formData.email}**</li>
-                ${formData.phone ? `<li><strong>📱 **Phone:**</strong> **${formData.phone}**</li>` : ''}
-                ${formData.packageName ? `<li><strong>🎒 **Package:**</strong> **${formData.packageName}**</li>` : ''}
-                ${formData.travelDate ? `<li><strong>📅 **Travel Date:**</strong> **${formData.travelDate}**</li>` : ''}
-                ${formData.numberOfPersons ? `<li><strong>👥 **Number of Persons:**</strong> **${formData.numberOfPersons}**</li>` : ''}
+                <li><strong>👤 Name:</strong> <strong>${formData.name}</strong></li>
+                <li><strong>📧 Email:</strong> <strong>${formData.email}</strong></li>
+                ${formData.phone ? `<li><strong>📱 Phone:</strong> <strong>${formData.phone}</strong></li>` : ''}
+                ${formData.packageName ? `<li><strong>🎒 Package:</strong> <strong>${formData.packageName}</strong></li>` : ''}
+                ${formData.travelDate ? `<li><strong>📅 Travel Date:</strong> <strong>${formData.travelDate}</strong></li>` : ''}
+                ${formData.numberOfPersons ? `<li><strong>👥 Number of Persons:</strong> <strong>${formData.numberOfPersons}</strong></li>` : ''}
               </ul>
             </div>
             
             <div class="contact-info">
-              <h3>📞 **Need Immediate Assistance?**</h3>
+              <h3>📞 <strong>Need Immediate Assistance?</strong></h3>
               <p style="color: #1b5e20; margin: 20px 0; font-size: 18px; font-weight: 700;">
-                **🌟 Our travel experts are available 24/7 to help you plan your perfect trip 🌟**
+                <strong>🌟 Our travel experts are available 24/7 to help you plan your perfect trip 🌟</strong>
               </p>
               <div class="contact-buttons">
-                <a href="tel:+919109455317" class="btn">📞 **Call Now**</a>
-                <a href="https://wa.me/919109455317" class="btn btn-whatsapp">💬 **WhatsApp**</a>
-                <a href="mailto:dreamtravelagency395@gmail.com" class="btn">✉️ **Email Us**</a>
+                <a href="tel:+919109455317" class="btn">📞 <strong>Call Now</strong></a>
+                <a href="https://wa.me/919109455317" class="btn btn-whatsapp">💬 <strong>WhatsApp</strong></a>
+                <a href="mailto:dreamtravelagency395@gmail.com" class="btn">✉️ <strong>Email Us</strong></a>
               </div>
             </div>
             
             <div class="next-steps">
-              <h3>🌟 **What Happens Next?**</h3>
+              <h3>🌟 <strong>What Happens Next?</strong></h3>
               <ul class="steps-list">
                 <li>
                   <div class="step-number">1</div>
-                  <div>**Our travel expert will review your requirements and preferences**</div>
+                  <div><strong>Our travel expert will review your requirements and preferences</strong></div>
                 </li>
                 <li>
                   <div class="step-number">2</div>
-                  <div>**We'll prepare a customized itinerary tailored just for you**</div>
+                  <div><strong>We'll prepare a customized itinerary tailored just for you</strong></div>
                 </li>
                 <li>
                   <div class="step-number">3</div>
-                  <div>**You'll receive a detailed quote with all inclusions within 24 hours**</div>
+                  <div><strong>You'll receive a detailed quote with all inclusions within 24 hours</strong></div>
                 </li>
                 <li>
                   <div class="step-number">4</div>
-                  <div>**We'll help you plan every detail of your dream trip to perfection**</div>
+                  <div><strong>We'll help you plan every detail of your dream trip to perfection</strong></div>
                 </li>
               </ul>
             </div>
@@ -744,18 +744,18 @@ export const getCustomerEmailTemplate = (formData: any) => {
           
           <div class="footer">
             <div class="footer-brand">✈️ Dream Travel Agency</div>
-            <p style="font-size: 20px; margin-bottom: 30px;">**🌟 Making Dreams Come True, One Journey at a Time 🌟**</p>
+            <p style="font-size: 20px; margin-bottom: 30px;"><strong>🌟 Making Dreams Come True, One Journey at a Time 🌟</strong></p>
             
             <p>
-              **📍 Pathriya Fatak, Mangaj Ward No. 6, Madhya Pradesh, India**<br>
-              **📞** <a href="tel:+919109455317">**+91 9109455317**</a> **|** 
-              **✉️** <a href="mailto:dreamtravelagency395@gmail.com">**dreamtravelagency395@gmail.com**</a>
+              <strong>📍 Pathriya Fatak, Mangaj Ward No. 6, Madhya Pradesh, India</strong><br>
+              <strong>📞</strong> <a href="tel:+919109455317"><strong>+91 9109455317</strong></a> <strong>|</strong> 
+              <strong>✉️</strong> <a href="mailto:dreamtravelagency395@gmail.com"><strong>dreamtravelagency395@gmail.com</strong></a>
             </p>
             
             <div class="social-links">
-              <a href="https://wa.me/919109455317" class="social-link">📱 **WhatsApp**</a>
-              <a href="https://www.instagram.com/dreamtravellers3" class="social-link">📷 **Instagram**</a>
-              <a href="tel:+919109455317" class="social-link">📞 **Call Us**</a>
+              <a href="https://wa.me/919109455317" class="social-link">📱 <strong>WhatsApp</strong></a>
+              <a href="https://www.instagram.com/dreamtravellers3" class="social-link">📷 <strong>Instagram</strong></a>
+              <a href="tel:+919109455317" class="social-link">📞 <strong>Call Us</strong></a>
             </div>
           </div>
         </div>
