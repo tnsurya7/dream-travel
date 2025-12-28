@@ -161,7 +161,7 @@ const Footer = () => {
               </a>
               
               <a 
-                href="https://www.google.com/maps/search/?api=1&query=Pathriya+Fatak,+Mangaj+Ward+No.+6,+Madhya+Pradesh,+India"
+                href="https://maps.app.goo.gl/AwQgjDwa2ZPMftua7?g_st=aw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start space-x-3 text-gray-300 hover:text-white transition-colors group cursor-pointer"

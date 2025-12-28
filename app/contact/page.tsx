@@ -99,7 +99,7 @@ const ContactPage = () => {
       icon: FiMapPin,
       title: 'Office Address',
       details: ['Pathriya Fatak, Mangaj Ward No. 6,', 'Madhya Pradesh, India'],
-      action: 'https://www.google.com/maps/search/?api=1&query=Pathriya+Fatak,+Mangaj+Ward+No.+6,+Madhya+Pradesh,+India',
+      action: 'https://maps.app.goo.gl/AwQgjDwa2ZPMftua7?g_st=aw',
       color: 'from-red-500 to-pink-500'
     },
     {
@@ -166,39 +166,40 @@ const ContactPage = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="h-full"
                 >
                   {info.action !== '#' ? (
                     <a
                       href={info.action}
                       target={info.action.startsWith('http') ? '_blank' : undefined}
                       rel={info.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="block bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+                      className="flex flex-col h-full bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group min-h-[140px]"
                     >
-                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform flex-shrink-0`}>
                         <info.icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors">
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors flex-shrink-0">
                         {info.title}
                       </h3>
-                      <div className="space-y-1">
+                      <div className="space-y-1 flex-grow flex flex-col justify-center">
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-gray-600 group-hover:text-gray-800 transition-colors">
+                          <p key={idx} className="text-gray-600 group-hover:text-gray-800 transition-colors text-sm leading-relaxed break-words">
                             {detail}
                           </p>
                         ))}
                       </div>
                     </a>
                   ) : (
-                    <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4`}>
+                    <div className="flex flex-col h-full bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 min-h-[140px]">
+                      <div className={`w-12 h-12 bg-gradient-to-r ${info.color} rounded-xl flex items-center justify-center mb-4 flex-shrink-0`}>
                         <info.icon className="w-6 h-6 text-white" />
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2 flex-shrink-0">
                         {info.title}
                       </h3>
-                      <div className="space-y-1">
+                      <div className="space-y-1 flex-grow flex flex-col justify-center">
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-gray-600">
+                          <p key={idx} className="text-gray-600 text-sm leading-relaxed break-words">
                             {detail}
                           </p>
                         ))}
@@ -390,7 +391,7 @@ const ContactPage = () => {
                 <div>
                   <h4 className="font-bold text-gray-800 mb-1">Dream Travel Agency</h4>
                   <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Pathriya+Fatak,+Mangaj+Ward+No.+6,+Madhya+Pradesh,+India"
+                    href="https://maps.app.goo.gl/AwQgjDwa2ZPMftua7?g_st=aw"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-gray-600 leading-relaxed hover:text-primary-600 transition-colors cursor-pointer block"
@@ -429,7 +430,7 @@ const ContactPage = () => {
             {/* Directions Button */}
             <div className="absolute bottom-4 right-4">
               <a
-                href="https://www.google.com/maps/search/Pathriya+Fatak+Mangaj+Ward+Madhya+Pradesh+India"
+                href="https://maps.app.goo.gl/AwQgjDwa2ZPMftua7?g_st=aw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors duration-300 flex items-center space-x-2 shadow-lg"
