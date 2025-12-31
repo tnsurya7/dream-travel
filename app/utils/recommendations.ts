@@ -98,6 +98,45 @@ const samplePackages: Package[] = [
     tags: ['spiritual', 'heritage', 'budget'],
     destinations: ['Mathura', 'Vrindavan', 'Raman Reti', 'Nand Gaon', 'Janmabhoomi'],
     highlights: ['Spiritual tour', 'Hotel + transport + sightseeing', 'Complete darshan', 'Pilgrimage experience']
+  },
+  {
+    id: '6',
+    title: 'Kerala – Discover God\'s Own Country',
+    category: 'nature',
+    price: 13750,
+    duration: '3 Nights 4 Days',
+    image: '/kerala.png',
+    description: 'Experience the beauty of Kerala with backwaters, tea gardens, and houseboat stay. Perfect family getaway to God\'s Own Country.',
+    budget: 'affordable',
+    tags: ['nature', 'family', 'budget'],
+    destinations: ['Cochin', 'Munnar', 'Alleppey'],
+    highlights: ['3★ Premium Hotel Valley View', 'Deluxe Houseboat with AC', 'Tea gardens & backwaters', 'All meals on houseboat']
+  },
+  {
+    id: '7',
+    title: 'Pushkar – Khatu Shyam Ji – Jaipur Tour',
+    category: 'spiritual',
+    price: 3200,
+    duration: '3 Days 2 Nights',
+    image: '/puskar.png',
+    description: 'Sacred spiritual journey covering Pushkar Lake, Khatu Shyam Ji darshan, and Jaipur heritage sites with comfortable accommodations.',
+    budget: 'affordable',
+    tags: ['spiritual', 'heritage', 'budget'],
+    destinations: ['Pushkar', 'Khatu Shyam Ji', 'Jaipur'],
+    highlights: ['Brahma Temple darshan', 'Khatu Shyam Ji temple', 'Amber Fort & Hawa Mahal', 'Starting from Damoh, MP']
+  },
+  {
+    id: '8',
+    title: 'Varanasi – Ayodhya – Chitrakoot – Prayagraj Tour',
+    category: 'spiritual',
+    price: 15000,
+    duration: '5 Nights 6 Days',
+    image: '/varnasi.png',
+    description: 'Complete pilgrimage tour covering sacred sites of Varanasi, Ayodhya, Chitrakoot, and Prayagraj with spiritual experiences.',
+    budget: 'affordable',
+    tags: ['spiritual', 'family'],
+    destinations: ['Varanasi', 'Ayodhya', 'Chitrakoot', 'Prayagraj'],
+    highlights: ['Ganga Aarti at Varanasi', 'Ram Janmabhoomi Ayodhya', 'Chitrakoot sacred sites', 'Sangam Darshan Prayagraj']
   }
 ]
 

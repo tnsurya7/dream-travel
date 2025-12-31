@@ -225,10 +225,10 @@ No environment variables required - all configuration is in the code.
 ## 📞 Business Information
 
 **Dream Travel Agency**
-- Phone: +91 9109455317, +91 8103797070
-- Email: nikhiljatav5588@gmail.com
-- Address: Pathriya Fatak, Mangaj Ward No. 6, Madhya Pradesh, India
-- Social: Instagram (link placeholder)
+- Phone: +91 9109455317
+- Email: dreamtravelagency395@gmail.com
+- Address: Damoh, Madhya Pradesh, India
+- Instagram: @dreamtravellers3
 
 ## 🤝 Contributing
 

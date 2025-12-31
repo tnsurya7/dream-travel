@@ -168,8 +168,7 @@ const Footer = () => {
               >
                 <FiMapPin className="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0 group-hover:text-primary-300" />
                 <p className="text-sm group-hover:underline">
-                  Pathriya Fatak, Mangaj Ward No. 6,<br />
-                  Madhya Pradesh, India
+                  Damoh, Madhya Pradesh, India
                 </p>
               </a>
             </div>

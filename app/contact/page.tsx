@@ -98,7 +98,7 @@ const ContactPage = () => {
     {
       icon: FiMapPin,
       title: 'Office Address',
-      details: ['Pathriya Fatak, Mangaj Ward No. 6,', 'Madhya Pradesh, India'],
+      details: ['Damoh, Madhya Pradesh, India'],
       action: 'https://maps.app.goo.gl/AwQgjDwa2ZPMftua7?g_st=aw',
       color: 'from-red-500 to-pink-500'
     },
@@ -396,8 +396,7 @@ const ContactPage = () => {
                     rel="noopener noreferrer"
                     className="text-sm text-gray-600 leading-relaxed hover:text-primary-600 transition-colors cursor-pointer block"
                   >
-                    Pathriya Fatak, Mangaj Ward No. 6<br />
-                    Madhya Pradesh, India
+                    Damoh, Madhya Pradesh, India
                   </a>
                   <div className="mt-2 flex flex-col space-y-1 text-xs text-gray-500">
                     <a href="tel:+919109455317" className="hover:text-primary-600 transition-colors">

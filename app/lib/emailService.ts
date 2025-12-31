@@ -331,8 +331,7 @@ export const getAdminEmailTemplate = (formData: any) => {
             <div class="contact-grid">
               <div class="contact-item">
                 <strong>📍 Address</strong><br>
-                <strong>Pathriya Fatak, Mangaj Ward No. 6</strong><br>
-                <strong>Madhya Pradesh, India</strong>
+                <strong>Damoh, Madhya Pradesh, India</strong>
               </div>
               <div class="contact-item">
                 <strong>📞 Phone</strong><br>
@@ -747,7 +746,7 @@ export const getCustomerEmailTemplate = (formData: any) => {
             <p style="font-size: 20px; margin-bottom: 30px;"><strong>🌟 Making Dreams Come True, One Journey at a Time 🌟</strong></p>
             
             <p>
-              <strong>📍 Pathriya Fatak, Mangaj Ward No. 6, Madhya Pradesh, India</strong><br>
+              <strong>📍 Damoh, Madhya Pradesh, India</strong><br>
               <strong>📞</strong> <a href="tel:+919109455317"><strong>+91 9109455317</strong></a> <strong>|</strong> 
               <strong>✉️</strong> <a href="mailto:dreamtravelagency395@gmail.com"><strong>dreamtravelagency395@gmail.com</strong></a>
             </p>

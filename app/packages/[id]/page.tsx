@@ -54,13 +54,19 @@ const PackageDetailsPage = () => {
     packageData.id === '2' ? '/KERALA HOLIDAY PACKAGE.png' :
     packageData.id === '3' ? '/ SIKKIM GROUP DEPARTURE.png' :
     packageData.id === '4' ? '/GANGTOK & DARJEELING WINTER SPECIAL.png' :
-    '/MATHURA.png',
+    packageData.id === '5' ? '/MATHURA.png' :
+    packageData.id === '6' ? '/kerala.png' :
+    packageData.id === '7' ? '/puskar.png' :
+    '/varnasi.png',
     
     // External images for gallery variety
     packageData.id === '1' ? 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
     packageData.id === '2' ? 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
     packageData.id === '3' ? 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
     packageData.id === '4' ? 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    packageData.id === '5' ? 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    packageData.id === '6' ? 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
+    packageData.id === '7' ? 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' :
     'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     
     // Additional gallery images
@@ -259,6 +265,93 @@ const PackageDetailsPage = () => {
             activities: ['Morning darshan', 'Check out', 'Shopping', 'Departure']
           }
         ]
+      case '6': // Kerala 3N/4D
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Cochin',
+            description: 'Arrive in Cochin, check into hotel, drive to Munnar (3 hours). Check into 3★ Premium Hotel with Valley View.',
+            activities: ['Cochin pickup', 'Drive to Munnar', 'Hotel check-in', 'Valley view evening']
+          },
+          {
+            day: 2,
+            title: 'Munnar Sightseeing',
+            description: 'Full day Munnar exploration covering tea gardens, viewpoints, and nature spots.',
+            activities: ['Tea plantation visit', 'Echo Point', 'Mattupetty Dam', 'Top Station viewpoint']
+          },
+          {
+            day: 3,
+            title: 'Munnar to Alleppey',
+            description: 'Drive to Alleppey, check into Deluxe Houseboat with full AC. Enjoy backwater cruise with all meals.',
+            activities: ['Drive to Alleppey', 'Houseboat check-in', 'Backwater cruise', 'Traditional Kerala meals']
+          },
+          {
+            day: 4,
+            title: 'Departure from Cochin',
+            description: 'Check out from houseboat, drive to Cochin for departure.',
+            activities: ['Houseboat check-out', 'Drive to Cochin', 'Airport/station drop', 'Departure']
+          }
+        ]
+      case '7': // Pushkar-Khatu Shyam-Jaipur Tour
+        return [
+          {
+            day: 1,
+            title: 'Damoh to Pushkar',
+            description: 'Depart from Damoh, drive to Pushkar. Visit Pushkar Lake, Brahma Temple, and attend evening aarti.',
+            activities: ['Departure from Damoh', 'Drive to Pushkar', 'Pushkar Lake visit', 'Brahma Temple darshan', 'Evening aarti']
+          },
+          {
+            day: 2,
+            title: 'Pushkar to Khatu Shyam Ji',
+            description: 'Morning Pushkar sightseeing, then drive to Khatu Shyam Ji for darshan and visit Shyam Kund.',
+            activities: ['Morning Pushkar tour', 'Drive to Khatu Shyam Ji', 'Khatu Shyam Temple darshan', 'Shyam Kund visit', 'Local temples']
+          },
+          {
+            day: 3,
+            title: 'Jaipur Sightseeing & Return',
+            description: 'Drive to Jaipur, visit Amber Fort, Hawa Mahal, City Palace, then return journey to Damoh.',
+            activities: ['Drive to Jaipur', 'Amber Fort', 'Hawa Mahal', 'City Palace', 'Return journey to Damoh']
+          }
+        ]
+      case '8': // Varanasi-Ayodhya-Chitrakoot-Prayagraj Tour
+        return [
+          {
+            day: 1,
+            title: 'Arrival in Varanasi',
+            description: 'Arrive in Varanasi, check into hotel, evening Ganga Aarti at Dashashwamedh Ghat.',
+            activities: ['Hotel check-in', 'Kashi Vishwanath Temple', 'Dashashwamedh Ghat', 'Evening Ganga Aarti']
+          },
+          {
+            day: 2,
+            title: 'Varanasi Sightseeing',
+            description: 'Early morning boat ride on Ganges, visit Sarnath, and explore old Varanasi.',
+            activities: ['Morning Ganga boat ride', 'Sarnath visit', 'Banaras Hindu University', 'Old city exploration']
+          },
+          {
+            day: 3,
+            title: 'Varanasi to Ayodhya',
+            description: 'Drive to Ayodhya, visit Ram Janmabhoomi, Hanuman Garhi, and other sacred sites.',
+            activities: ['Drive to Ayodhya', 'Ram Janmabhoomi darshan', 'Hanuman Garhi', 'Kanak Bhawan', 'Sarayu River aarti']
+          },
+          {
+            day: 4,
+            title: 'Ayodhya to Chitrakoot',
+            description: 'Drive to Chitrakoot, visit Ram Ghat, Kamadgiri, and other places associated with Lord Rama.',
+            activities: ['Drive to Chitrakoot', 'Ram Ghat', 'Kamadgiri Parikrama', 'Bharat Milap Temple', 'Sphatik Shila']
+          },
+          {
+            day: 5,
+            title: 'Chitrakoot to Prayagraj',
+            description: 'Drive to Prayagraj, visit Triveni Sangam, Allahabad Fort, and Anand Bhawan.',
+            activities: ['Drive to Prayagraj', 'Triveni Sangam darshan', 'Allahabad Fort', 'Anand Bhawan', 'Hanuman Temple']
+          },
+          {
+            day: 6,
+            title: 'Departure from Prayagraj',
+            description: 'Morning temple visits, check out from hotel, departure from Prayagraj.',
+            activities: ['Morning darshan', 'Check out', 'Local sightseeing', 'Departure']
+          }
+        ]
       default:
         return [
           {
@@ -330,6 +423,35 @@ const PackageDetailsPage = () => {
           'Local guide for spiritual sites',
           'All entry fees to temples',
           'Spiritual tour coordination'
+        ]
+      case '6': // Kerala 3N/4D
+        return [
+          ...baseInclusions,
+          '3★ Premium Hotel with Valley View in Munnar',
+          'Deluxe Houseboat with Full AC in Alleppey',
+          'All meals during houseboat stay',
+          'Tea plantation visits',
+          'Backwater cruise experience',
+          'Pickup & drop from Cochin'
+        ]
+      case '7': // Pushkar-Khatu Shyam-Jaipur
+        return [
+          ...baseInclusions,
+          'Hotel accommodation (2 nights)',
+          'All sightseeing as per itinerary',
+          'Temple darshan arrangements',
+          'Starting point: Damoh, Madhya Pradesh',
+          'All transfers included'
+        ]
+      case '8': // Varanasi-Ayodhya-Chitrakoot-Prayagraj
+        return [
+          ...baseInclusions,
+          'Hotel accommodation (5 nights)',
+          'Ganga Aarti arrangements',
+          'Boat ride on River Ganges',
+          'All temple darshan coordination',
+          'Spiritual guide for pilgrimage sites',
+          'All sightseeing as per itinerary'
         ]
       default:
         return baseInclusions
