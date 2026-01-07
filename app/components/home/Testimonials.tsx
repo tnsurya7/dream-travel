@@ -1,8 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiStar } from 'react-icons/fi'
+import { FiStar, FiArrowRight } from 'react-icons/fi'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -10,62 +11,124 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'Priya & Rahul Sharma',
-      location: 'Mumbai, India',
-      package: 'Goa Honeymoon Package',
-      rating: 5,
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      review: 'Our honeymoon in Goa was absolutely magical! Dream Travel Agency took care of every detail, from the beachfront resort to the romantic candlelight dinner. The sunset cruise was the highlight of our trip. Highly recommended!',
-      date: 'December 2023'
+      name: 'Rajesh & Priya Sharma',
+      location: 'Mumbai, Maharashtra',
+      package: 'Kashmir Tour Package',
+      packageId: '1',
+      rating: 4.9,
+      badge: 'Adventure • Nature',
+      image: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+      review: 'Kashmir was absolutely breathtaking! The houseboat stay on Dal Lake and the snow activities in Gulmarg exceeded our expectations. Dream Travel Agency handled everything perfectly - from airport pickup to the Shikara rides. The Gondola experience was unforgettable!',
+      date: 'March 2024',
+      verified: true
     },
     {
       id: 2,
       name: 'Amit Patel Family',
-      location: 'Delhi, India',
-      package: 'Kerala Backwaters Tour',
-      rating: 5,
+      location: 'Ahmedabad, Gujarat',
+      package: 'Kerala – Discover God\'s Own Country',
+      packageId: '6',
+      rating: 5.0,
+      badge: 'Nature • Family',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      review: 'The Kerala backwaters experience was beyond our expectations. The houseboat was comfortable, the food was delicious, and our kids loved the nature walks. The team was very professional and accommodating.',
-      date: 'November 2023'
+      review: 'Perfect family trip to Kerala! The 3-night package was well-planned with beautiful tea gardens in Munnar and an amazing houseboat experience in Alleppey. Our kids loved the backwater cruise and the food was delicious. Great value for money at ₹13,750 per person.',
+      date: 'February 2024',
+      verified: true
     },
     {
       id: 3,
-      name: 'Sneha & Vikram Wedding',
-      location: 'Bangalore, India',
-      package: 'Rajasthan Royal Wedding',
-      rating: 5,
+      name: 'Meera & Vikram',
+      location: 'Bangalore, Karnataka',
+      package: 'Mathura - Vrindavan Tour',
+      packageId: '5',
+      rating: 4.8,
+      badge: 'Spiritual • Heritage',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      review: 'Our royal wedding in Rajasthan was like a fairy tale! The palace venue, traditional ceremonies, and royal treatment made our special day unforgettable. Thank you Dream Travel Agency for making our dreams come true!',
-      date: 'October 2023'
+      review: 'Our spiritual journey to Mathura-Vrindavan was deeply fulfilling. The darshan arrangements at all major temples were seamless, and our guide was very knowledgeable about the religious significance. The 4-day itinerary covered all important sites perfectly.',
+      date: 'January 2024',
+      verified: true
     },
     {
       id: 4,
-      name: 'College Group - IIT Delhi',
-      location: 'Delhi, India',
-      package: 'Manali Adventure Tour',
-      rating: 5,
+      name: 'College Group - NIT Trichy',
+      location: 'Tiruchirappalli, Tamil Nadu',
+      package: 'Winter Special - Gangtok & Darjeeling',
+      packageId: '4',
+      rating: 4.9,
+      badge: 'Adventure • Group',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      review: 'Amazing group tour to Manali! The adventure activities, comfortable accommodation, and well-planned itinerary made it perfect for our college group. Great value for money and excellent service.',
-      date: 'September 2023'
+      review: 'Amazing winter trip to Darjeeling and Gangtok! The Tiger Hill sunrise was spectacular, and the snow experience was perfect for our group of 15 students. At ₹16,699 per person, it was excellent value. The coordination was flawless throughout the 5-day trip.',
+      date: 'December 2023',
+      verified: true
+    },
+    {
+      id: 5,
+      name: 'Sunita & Ramesh Gupta',
+      location: 'Delhi, India',
+      package: 'Kerala Holiday Package',
+      packageId: '2',
+      rating: 5.0,
+      badge: 'Premium • Nature',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+      review: 'The 7-day Kerala premium package was worth every penny! From Kochi to Kovalam, every destination was beautiful. The luxury houseboat in Alleppey and the spice plantation visit in Thekkady were highlights. Professional service throughout our honeymoon trip.',
+      date: 'November 2023',
+      verified: true
+    },
+    {
+      id: 6,
+      name: 'Ravi Kumar & Friends',
+      location: 'Pune, Maharashtra',
+      package: 'Pushkar – Khatu Shyam Ji – Jaipur Tour',
+      packageId: '7',
+      rating: 4.8,
+      badge: 'Spiritual • Budget',
+      image: 'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+      review: 'Excellent spiritual tour covering Pushkar, Khatu Shyam Ji, and Jaipur in just 3 days. The temple darshan arrangements were perfect, and we also got to see Jaipur\'s heritage sites. At ₹3,200 per person, this was incredibly affordable for such a comprehensive trip.',
+      date: 'October 2023',
+      verified: true
     }
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
+    }, 6000)
     return () => clearInterval(timer)
   }, [testimonials.length])
 
   const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <FiStar
-        key={i}
-        className={`w-5 h-5 ${
-          i < rating ? 'text-gold-400 fill-current' : 'text-gray-300'
-        }`}
-      />
-    ))
+    const fullStars = Math.floor(rating)
+    const hasHalfStar = rating % 1 !== 0
+    
+    return (
+      <div className="flex items-center space-x-1">
+        {Array.from({ length: fullStars }, (_, i) => (
+          <FiStar key={i} className="w-5 h-5 text-gold-400 fill-current" />
+        ))}
+        {hasHalfStar && (
+          <div className="relative">
+            <FiStar className="w-5 h-5 text-gray-300" />
+            <div className="absolute inset-0 overflow-hidden w-1/2">
+              <FiStar className="w-5 h-5 text-gold-400 fill-current" />
+            </div>
+          </div>
+        )}
+        {Array.from({ length: 5 - Math.ceil(rating) }, (_, i) => (
+          <FiStar key={i + fullStars} className="w-5 h-5 text-gray-300" />
+        ))}
+        <span className="ml-2 text-gold-400 font-semibold text-sm">{rating.toFixed(1)}</span>
+      </div>
+    )
+  }
+
+  const getBadgeColor = (badge: string) => {
+    if (badge.includes('Adventure')) return 'from-orange-500 to-red-500'
+    if (badge.includes('Nature')) return 'from-green-500 to-emerald-500'
+    if (badge.includes('Spiritual')) return 'from-purple-500 to-indigo-500'
+    if (badge.includes('Premium')) return 'from-gold-500 to-yellow-500'
+    if (badge.includes('Family')) return 'from-blue-500 to-cyan-500'
+    if (badge.includes('Group')) return 'from-pink-500 to-rose-500'
+    return 'from-gray-500 to-gray-600'
   }
 
   return (
@@ -86,10 +149,10 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-luxury font-bold text-white mb-6">
-            What Our Travelers Say
+            Real Stories from Real Travelers
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it - hear from our satisfied customers who have experienced the magic of traveling with us
+            Discover authentic experiences from our customers who have explored amazing destinations with our carefully crafted travel packages
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-gold-400 to-gold-600 mx-auto mt-8"></div>
         </motion.div>
@@ -98,7 +161,7 @@ const Testimonials = () => {
         <div className="relative">
           <div className="overflow-hidden rounded-3xl">
             <motion.div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {testimonials.map((testimonial, index) => (
@@ -124,6 +187,11 @@ const Testimonials = () => {
                           {renderStars(testimonial.rating)}
                         </div>
 
+                        {/* Package Badge */}
+                        <div className={`inline-block bg-gradient-to-r ${getBadgeColor(testimonial.badge)} text-white px-4 py-2 rounded-full text-sm font-semibold mb-4`}>
+                          {testimonial.badge}
+                        </div>
+
                         {/* Review */}
                         <blockquote className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6 italic">
                           "{testimonial.review}"
@@ -135,6 +203,10 @@ const Testimonials = () => {
                             src={testimonial.image}
                             alt={testimonial.name}
                             className="w-16 h-16 rounded-full object-cover border-4 border-white/20"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name.replace('&', 'and'))}&background=667eea&color=fff&size=150&font-size=0.4&bold=true`;
+                            }}
                           />
                           <div>
                             <h4 className="text-xl font-bold text-white mb-1">
@@ -146,9 +218,18 @@ const Testimonials = () => {
                             <p className="text-gold-400 text-sm font-medium mb-1">
                               {testimonial.package}
                             </p>
-                            <p className="text-gray-400 text-xs">
-                              {testimonial.date}
+                            <p className="text-gray-400 text-xs mb-3">
+                              Traveled in {testimonial.date}
                             </p>
+                            
+                            {/* View Package Button */}
+                            <Link
+                              href={`/packages/${testimonial.packageId}`}
+                              className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 transform hover:scale-105 group"
+                            >
+                              <span>View Package</span>
+                              <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -165,14 +246,28 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
                     ? 'bg-gold-400 w-8'
-                    : 'bg-white/30 hover:bg-white/50'
+                    : 'bg-white/30 hover:bg-white/50 w-3'
                 }`}
               />
             ))}
           </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+          >
+            ←
+          </button>
+          <button
+            onClick={() => setCurrentSlide((prev) => (prev + 1) % testimonials.length)}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+          >
+            →
+          </button>
         </div>
 
         {/* Trust Badges */}
@@ -184,15 +279,15 @@ const Testimonials = () => {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-gold-400 mb-2">500+</div>
-              <div className="text-gray-300 text-sm">Happy Customers</div>
+              <div className="text-3xl font-bold text-gold-400 mb-2">800+</div>
+              <div className="text-gray-300 text-sm">Happy Travelers</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-gold-400 mb-2">4.9★</div>
               <div className="text-gray-300 text-sm">Average Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-gold-400 mb-2">100%</div>
+              <div className="text-3xl font-bold text-gold-400 mb-2">98%</div>
               <div className="text-gray-300 text-sm">Satisfaction Rate</div>
             </div>
             <div className="text-center">
