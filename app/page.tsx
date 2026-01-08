@@ -5,6 +5,7 @@ import Hero from './components/home/Hero'
 import FeaturedPackages from './components/home/FeaturedPackages'
 import WhyChooseUs from './components/home/WhyChooseUs'
 import Testimonials from './components/home/Testimonials'
+import FAQ from './components/home/FAQ'
 import RecommendedPackages from './components/home/RecommendedPackages'
 import { trackUserBehavior, getUserRecommendations } from './utils/recommendations'
 
@@ -31,6 +32,7 @@ export default function Home() {
         <RecommendedPackages packages={recommendations} />
       )}
       <Testimonials />
+      <FAQ />
     </div>
   )
 }

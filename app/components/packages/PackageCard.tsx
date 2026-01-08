@@ -27,6 +27,30 @@ const PackageCard = ({ package: pkg }: PackageCardProps) => {
     trackUserBehavior('category_click', { category: pkg.category })
   }
 
+  const getImageAltText = (pkg: Package) => {
+    const baseLocation = "from Damoh Madhya Pradesh"
+    switch (pkg.id) {
+      case '1':
+        return `Kashmir tour package ${baseLocation} - Dal Lake houseboat and Gulmarg snow activities`
+      case '2':
+        return `Kerala holiday package ${baseLocation} - backwaters houseboat and hill stations`
+      case '3':
+        return `Sikkim group tour package ${baseLocation} - Gangtok Pelling Darjeeling sightseeing`
+      case '4':
+        return `Gangtok Darjeeling winter tour package ${baseLocation} - snow activities and mountain views`
+      case '5':
+        return `Mathura Vrindavan spiritual tour package ${baseLocation} - Krishna temples pilgrimage`
+      case '6':
+        return `Kerala backwaters tour package ${baseLocation} - Munnar tea gardens and Alleppey houseboat`
+      case '7':
+        return `Pushkar Khatu Shyam Jaipur spiritual tour package ${baseLocation} - temples and heritage sites`
+      case '8':
+        return `Varanasi Ayodhya Chitrakoot Prayagraj pilgrimage tour package ${baseLocation} - spiritual journey`
+      default:
+        return `${pkg.title} tour package ${baseLocation} - ${pkg.category} travel India`
+    }
+  }
+
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'adventure':

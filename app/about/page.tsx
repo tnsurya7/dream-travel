@@ -382,6 +382,24 @@ const AboutPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* SEO Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Trusted Travel Agency in Madhya Pradesh
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+              Dream Travel Agency is a trusted travel agency based in Damoh, Madhya Pradesh, specializing in domestic tour packages including Kashmir, Kerala, spiritual tours, and family holidays across India. We provide comprehensive travel services with professional planning, competitive pricing, and personalized customer care to ensure memorable travel experiences for families, couples, groups, and individual travelers throughout the country.
+            </p>
+          </motion.div>
+        </div>
+      </section>
     </div>
   )
 }

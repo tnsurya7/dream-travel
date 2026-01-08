@@ -658,6 +658,54 @@ const PackageDetailsPage = () => {
                 </div>
               </div>
             </motion.div>
+
+            {/* Why Book This Tour */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-white rounded-2xl shadow-lg p-8"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Why Book This Tour</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiCheck className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Trusted Travel Agency</h3>
+                    <p className="text-gray-600 text-sm">Based in Madhya Pradesh with years of experience in organizing memorable trips</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiCheck className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Best Price Guarantee</h3>
+                    <p className="text-gray-600 text-sm">Competitive pricing with email-based booking and transparent cost structure</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiCheck className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Safe & Reliable</h3>
+                    <p className="text-gray-600 text-sm">Professional travel planning with 24/7 support and safety measures</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiCheck className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Perfect for Everyone</h3>
+                    <p className="text-gray-600 text-sm">Suitable for families, couples, groups, and pilgrims with customized itineraries</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Sidebar */}

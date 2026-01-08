@@ -242,6 +242,27 @@ const PackagesPage = () => {
             )}
           </div>
         </div>
+
+        {/* SEO Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 bg-white rounded-2xl shadow-lg p-8"
+        >
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Premium Tour Packages from Madhya Pradesh
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+              Dream Travel Agency offers affordable and premium tour packages from Damoh, Madhya Pradesh. 
+              Our services include Kashmir tour packages, Kerala holiday packages, spiritual tours, family tours, 
+              group tours, and budget travel packages across India. We specialize in creating memorable travel 
+              experiences with professional service, competitive pricing, and personalized itineraries for all 
+              types of travelers including families, couples, groups, and pilgrims.
+            </p>
+          </div>
+        </motion.section>
       </div>
     </div>
   )
