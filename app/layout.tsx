@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dreamtravelz.in'),
+  alternates: {
+    canonical: 'https://dreamtravelz.in',
+  },
   title: 'Dream Travel Agency - Premium Tour Packages from Damoh, Madhya Pradesh',
   description: 'Dream Travel Agency offers affordable and premium tour packages from Damoh, Madhya Pradesh. Kashmir, Kerala, spiritual tours, family tours, and group tours across India with 24/7 support.',
   keywords: 'travel agency Damoh, Madhya Pradesh tour packages, Kashmir tour packages, Kerala holiday packages, spiritual tours India, family tours, group tours, budget travel packages',
