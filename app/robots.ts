@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://dreamtravelagency.com/sitemap.xml',
+    sitemap: 'https://dreamtravelz.in/sitemap.xml',
   }
 }
